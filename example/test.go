@@ -18,7 +18,6 @@ func (t *TestTask) Run() {
 		count--
 		time.Sleep(1 * time.Second)
 	}
-	t.Finish()
 }
 
 type DemoTask struct {
@@ -32,7 +31,6 @@ func (t *DemoTask) Run() {
 		count--
 		time.Sleep(1 * time.Second)
 	}
-	t.Finish()
 }
 
 type QWETask struct {
@@ -46,7 +44,6 @@ func (t *QWETask) Run() {
 		count--
 		time.Sleep(1 * time.Second)
 	}
-	t.Finish()
 }
 
 func main() {

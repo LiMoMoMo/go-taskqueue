@@ -60,7 +60,12 @@ func (tq *TaskQueue) run() {
 				}
 				task := tq.taskq.Dequeue()
 				tq.taskm[task.(TaskInterface).GetTaskID()] = task.(TaskInterface)
-				go task.(TaskInterface).Run()
+				// go task.(TaskInterface).Run()
+				// go task.(TaskInterface).Start()
+				go func() {
+					task.(TaskInterface).Run()
+					task.(TaskInterface).Finish()
+				}()
 			case FINISH:
 				tid := message.(*FinishMessage).Taskid
 				delete(tq.taskm, tid)

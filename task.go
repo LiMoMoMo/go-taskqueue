@@ -10,6 +10,7 @@ type Task struct {
 type TaskInterface interface {
 	Run()
 	Stop()
+	Finish()
 
 	SetChan(chan MessageInterface)
 	SetTaskID(id int)
@@ -30,7 +31,7 @@ func (task *Task) GetTaskID() int {
 
 func (task *Task) Run() {
 	fmt.Printf("This is Task run function, task id is %d\r\n", task.taskID)
-	task.Finish()
+	// task.Finish()
 }
 
 func (task *Task) Finish() {
